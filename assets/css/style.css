@@ -1,0 +1,672 @@
+/* Login Page */
+
+.body-pink {
+    background-color: #ffcadf;
+    overflow-x: hidden;
+}
+
+.pinkie-input {
+    border-radius: 25px !important;
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+    border: 1px solid #ced4da;
+}
+
+.pinkie-input:focus {
+    border-color: #AA2A4E;
+    box-shadow: 0 0 0 0.2rem rgba(170, 42, 78, 0.25);
+}
+
+.btn-pinkie {
+    background-color: #ef80ac !important;
+    color: white !important;
+    transition: 0.3s ease;
+    height: 42px;
+}
+
+.btn-pinkie:hover {
+    background-color: #da5586 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(170, 42, 78, 0.3);
+}
+
+.pinkie-checkbox:checked {
+    background-color: #da5586;
+    border-color: #AA2A4E;
+}
+
+/*  Admin Login Animations  */
+
+@keyframes headerSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-form-item {
+    opacity: 0;
+    animation: slideUpFade 0.8s ease-out forwards;
+}
+
+@keyframes logoBreathe {
+    0% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+.animate-logo-breathe {
+    display: inline-block;
+    animation: logoBreathe 3s ease-in-out infinite;
+    animation-delay: 1.2s;
+}
+
+/*  Dashboard  */
+
+body {
+    background: linear-gradient(135deg, #ffe5ec 0%, #ffcadf 50%, #fdfbfb 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 8px 32px 0 rgba(218, 85, 134, 0.1) !important;
+}
+
+.glass-input {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    color: #495057 !important;
+}
+
+.glass-icon-box {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(218, 85, 134, 0.1);
+}
+
+.dash-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(218, 85, 134, 0.15) !important;
+}
+
+.product-img-box {
+    transition: 0.3s ease;
+}
+
+.product-img-box:hover {
+    background: rgba(255, 255, 255, 0.8) !important;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+#wrapper {
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Products */
+
+.glass-table {
+    --bs-table-bg: transparent;
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.716);
+}
+
+.glass-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.glass-table td {
+    border-bottom: 1px solid rgba(218, 85, 134, 0.1);
+    vertical-align: middle;
+}
+
+.btn-outline-pinkie {
+    color: #da5586;
+    border-color: #da5586;
+    background: rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+}
+
+.btn-outline-pinkie:hover {
+    background-color: #da5586;
+    color: white;
+}
+
+/*  Add Product  */
+
+.glass-upload-box {
+    border: 2px dashed rgba(218, 85, 134, 0.4);
+    background: rgba(255, 255, 255, 0.308);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.glass-upload-box:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: #da5586;
+    transform: translateY(-2px);
+}
+
+.text-pinkie {
+    color: #da5586 !important;
+}
+
+.pinkie-switch:checked {
+    background-color: #da5586 !important;
+    border-color: #da5586 !important;
+}
+
+.pinkie-switch:focus {
+    box-shadow: 0 0 0 0.25rem rgba(218, 85, 134, 0.25) !important;
+    border-color: #da5586 !important;
+}
+
+.glass-input-pink {
+    background: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(218, 85, 134, 0.4) !important;
+    color: #495057 !important;
+    transition: all 0.3s ease;
+}
+
+.glass-input-pink:focus {
+    border-color: #da5586 !important;
+    box-shadow: 0 0 0 0.25rem rgba(218, 85, 134, 0.25) !important;
+    outline: none;
+}
+
+/*  Floating Hover Sidebar  */
+.sidebar-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    height: calc(100vh - 40px) !important;
+    width: 230px;
+    border-radius: 20px;
+    background: rgba(252, 235, 241, 0.182);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(218, 85, 134, 0.284);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1050;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.sidebar-wrapper::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sidebar-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(218, 85, 134, 0.3);
+    border-radius: 10px;
+}
+
+#sidebarLogo {
+    width: 90px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body.dark-mode #sidebarLogo {
+    filter: brightness(0) invert(1);
+}
+
+.sidebar-link span,
+.sidebar-text-hide {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.sidebar-link,
+.glass-item {
+    color: #da5586 !important;
+    background-color: transparent !important;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 12px 22px !important;
+    display: flex;
+    align-items: center;
+    border-radius: 12px !important;
+    margin-bottom: 5px !important;
+    text-decoration: none;
+}
+
+.sidebar-link i {
+    min-width: 25px;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 15px !important;
+    color: #da5586;
+}
+
+.sidebar-link:hover {
+    background: rgba(218, 85, 134, 0.1) !important;
+    color: #da5586 !important;
+}
+
+.active-nav {
+    background: rgba(218, 85, 134, 0.342) !important;
+    color: #ffffff !important;
+    /* box-shadow: 0 4px 10px rgba(218, 85, 134, 0.3); */
+    font-weight: bold;
+}
+
+.active-nav i,
+.active-nav span {
+    color: #000000de !important;
+}
+
+#page-content-wrapper {
+    min-width: 0;
+    width: calc(100% - 290px);
+    margin-left: 260px;
+    min-height: 100vh;
+    transition: margin-left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding-top: 15px;
+}
+
+.mobile-menu-btn {
+    display: block !important;
+    background: transparent;
+    border: none;
+    color: #da5586;
+    font-size: 22px;
+    margin-right: 15px;
+}
+
+@media (min-width: 769px) {
+    #wrapper.toggled .sidebar-wrapper {
+        left: -300px;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
+
+/*  Dark Mode Styles For Sidebar  */
+body.dark-mode {
+    background: #121212 !important;
+    color: #ffffff;
+}
+
+body.dark-mode .glass-panel {
+    background: rgba(30, 30, 30, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .text-dark,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .text-muted {
+    color: #a0a0a0 !important;
+}
+
+body.dark-mode .glass-input {
+    background: rgba(50, 50, 50, 0.5) !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-mode .glass-icon-box {
+    background: rgba(50, 50, 50, 0.8) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .sidebar-wrapper {
+    background: rgba(30, 30, 30, 0.95) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .sidebar-heading h6 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .sidebar-link,
+body.dark-mode .sidebar-link i {
+    color: #cccccc !important;
+}
+
+body.dark-mode .sidebar-link:hover {
+    background: rgba(218, 85, 134, 0.2) !important;
+    color: #da5586 !important;
+}
+
+body.dark-mode .sidebar-link:hover i {
+    color: #da5586 !important;
+}
+
+body.dark-mode .active-nav {
+    background: rgba(218, 85, 134, 0.4) !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .active-nav i,
+body.dark-mode .active-nav span {
+    color: #ffffff !important;
+}
+
+/*  Dark Mode for Table  */
+
+/* Theme Toggle Button in Dark Mode */
+body.dark-mode #themeToggle {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark-mode #themeToggle i {
+    color: #ffc107 !important;
+}
+
+body.dark-mode .pink-header th,
+body.dark-mode .glass-table th {
+    background-color: rgba(218, 85, 134, 0.15) !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid rgba(218, 85, 134, 0.3) !important;
+}
+
+body.dark-mode .glass-table td {
+    color: #e0e0e0 !important;
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .glass-table .text-dark {
+    color: #ffffff !important;
+}
+
+/*  Mobile Responsive  */
+@media (max-width: 768px) {
+    .sidebar-wrapper {
+        left: -300px;
+        width: 260px !important;
+        background: rgba(252, 235, 241, 0.182);
+    }
+
+    .sidebar-link span,
+    .sidebar-text-hide {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #sidebarLogo {
+        width: 80px;
+    }
+
+    #wrapper.toggled .sidebar-wrapper {
+        left: 15px;
+    }
+
+    #page-content-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        z-index: 1040;
+        display: none;
+    }
+
+    #wrapper.toggled .sidebar-overlay {
+        display: block;
+    }
+
+    .mobile-menu-btn {
+        display: block !important;
+        background: transparent;
+        border: none;
+        color: #da5586;
+        font-size: 22px;
+        margin-right: 15px;
+    }
+}
+
+/* Categories Page - Upload Boxes */
+
+.cat-upload-square {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    background-color: rgba(218, 85, 134, 0.05);
+}
+
+.cat-edit-circle {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.preview-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.preview-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 2;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hover-camera-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 50%;
+}
+
+.cat-edit-circle:hover .hover-camera-overlay {
+    opacity: 1;
+}
+
+body.dark-mode .cat-upload-square {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* image crop */
+.cropper-view-box,
+.cropper-face {
+    border-radius: 10px;
+}
+
+.cropper-point {
+    background-color: #da5586;
+}
+
+.cropper-line {
+    background-color: #da5586;
+}
+
+/* Messages / Chat Page  */
+
+.chat-list-container {
+    height: calc(100vh - 220px);
+    overflow-y: auto;
+}
+
+.chat-list-container::-webkit-scrollbar,
+.chat-window-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-list-container::-webkit-scrollbar-thumb,
+.chat-window-body::-webkit-scrollbar-thumb {
+    background: rgba(218, 85, 134, 0.2);
+    border-radius: 10px;
+}
+
+.chat-contact {
+    transition: 0.3s ease;
+    cursor: pointer;
+    border-left: 4px solid transparent;
+}
+
+.chat-contact:hover {
+    background: rgba(255, 255, 255, 0.6) !important;
+}
+
+.chat-contact.active {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-left: 4px solid #da5586;
+    box-shadow: 0 4px 10px rgba(218, 85, 134, 0.05);
+}
+
+.chat-window-body {
+    height: calc(100vh - 300px);
+    overflow-y: auto;
+    background: rgba(252, 235, 241, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.chat-bubble {
+    max-width: 75%;
+    padding: 12px 16px;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.chat-bubble-admin {
+    background: #da55869d;
+    color: white;
+    border-radius: 18px 18px 0 18px;
+}
+
+.chat-bubble-customer {
+    background: #ffffff;
+    color: #333;
+    border-radius: 18px 18px 18px 0;
+}
+
+.chat-product-card {
+    background: #ffffff;
+    border: 1px solid rgba(218, 85, 134, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 5px;
+    width: 280px;
+}
+
+.chat-product-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.chat-input-area {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 5px 10px 5px 20px;
+    box-shadow: 0 4px 15px rgba(218, 85, 134, 0.1);
+}
+
+.chat-input-field {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.pdf-btn {
+    border-color: #dc3545;
+    color: #dc3545;
+    background: rgba(255, 255, 255, 0.5);
+     transition: 0.3s ease;
+}
+
+.pdf-btn:hover {
+    background-color: #dc3545 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(170, 42, 42, 0.3);
+    color: white;
+}

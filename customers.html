@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinkie Admin | Customers</title>
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/vendor/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+        <div id="sidebar-container"></div>
+
+        <div id="page-content-wrapper" class="w-100 d-flex flex-column min-vh-100">
+            <div id="navbar-container"></div>
+
+            <div class="container-fluid px-4 flex-grow-1">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold text-dark m-0">Customers</h5>
+
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-danger rounded-pill px-4 fw-bold pdf" onclick="exportToPDF()">
+                            <i class="fas fa-file-pdf me-2"></i> Export PDF
+                        </button>
+
+                        <button class="btn btn-pinkie rounded-pill px-4 fw-bold" onclick="exportToCSV()">
+                            <i class="fas fa-file-csv me-2"></i> Export CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="card dash-card glass-panel rounded-4 p-3 border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="text-muted mb-1 fw-bold" style="font-size: 13px;">Total Customers</p>
+                                    <h3 class="fw-bold text-dark m-0">1,245</h3>
+                                </div>
+                                <div class="glass-icon-box rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width:50px; height:50px;">
+                                    <i class="fas fa-users fs-4 text-pinkie"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card dash-card glass-panel rounded-4 p-3 border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="text-muted mb-1 fw-bold" style="font-size: 13px;">New This Month</p>
+                                    <h3 class="fw-bold text-success m-0">+84</h3>
+                                </div>
+                                <div class="glass-icon-box rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width:50px; height:50px;">
+                                    <i class="fas fa-user-plus fs-4 text-success"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card dash-card glass-panel rounded-4 p-3 border-0">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <p class="text-muted mb-1 fw-bold" style="font-size: 13px;">Active Members</p>
+                                    <h3 class="fw-bold text-primary m-0">890</h3>
+                                </div>
+                                <div class="glass-icon-box rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width:50px; height:50px;">
+                                    <i class="fas fa-user-check fs-4 text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass-panel rounded-4 p-3 mb-4 border-0">
+                    <div class="row g-2">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span
+                                    class="input-group-text glass-input-pink border-end-0 bg-transparent rounded-start-pill">
+                                    <i class="fas fa-search text-muted"></i>
+                                </span>
+                                <input type="text" class="form-control glass-input-pink border-start-0 rounded-end-pill"
+                                    placeholder="Search by name, email or phone...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select glass-input-pink rounded-pill">
+                                <option selected>Sort By</option>
+                                <option value="1">Newest First</option>
+                                <option value="2">Highest Spender</option>
+                                <option value="3">Most Orders</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass-panel rounded-4 p-4 border-0 mb-5">
+                    <div class="table-responsive">
+                        <table class="table table-hover glass-table align-middle mb-0"
+                            style="border-collapse: separate; border-spacing: 0 8px;">
+                            <thead class="pink-header">
+                                <tr>
+                                    <th scope="col" class="ps-3">#ID</th>
+                                    <th scope="col">CUSTOMER INFO</th>
+                                    <th scope="col">JOINED DATE</th>
+                                    <th scope="col" class="text-center">TOTAL ORDERS</th>
+                                    <th scope="col" class="text-center">TOTAL SPENT</th>
+                                    <th scope="col" class="text-center">STATUS</th>
+                                    <th scope="col" class="text-center pe-3">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="customerProfileModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+                    <div class="modal-content glass-panel rounded-4 border-0 shadow-lg"
+                        style="backdrop-filter: blur(25px);">
+
+                        <div class="modal-header border-bottom-0 pb-2 px-4 pt-4">
+                            <h5 class="modal-title fw-bold text-dark m-0"><i
+                                    class="fas fa-user-circle text-pinkie me-2"></i> Customer Profile</h5>
+                            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body px-4 pt-2 pb-4">
+                            <div class="row g-4">
+                                <div class="col-lg-4">
+                                    <div class="card h-100 border-0 rounded-4 p-4 shadow-sm text-center"
+                                        style="background: rgba(255,255,255,0.6);">
+                                        <div class="bg-white rounded-circle d-flex align-items-center justify-content-center shadow-sm mx-auto mb-3"
+                                            style="width: 80px; height: 80px;">
+                                            <i class="fas fa-user text-pinkie fs-1"></i>
+                                        </div>
+                                        <h5 class="fw-bold text-dark mb-1">Sanduni Perera</h5>
+                                        <p class="text-muted mb-3" style="font-size: 13px;">Customer ID: #CUS-001</p>
+                                        <span
+                                            class="badge bg-success bg-opacity-10 text-success px-3 py-2 rounded-pill mb-4">Active
+                                            Member</span>
+
+                                        <div class="text-start mt-2">
+                                            <p class="mb-2 text-dark" style="font-size: 13px;"><i
+                                                    class="fas fa-envelope text-secondary me-2"></i> sanduni@email.com
+                                            </p>
+                                            <p class="mb-2 text-dark" style="font-size: 13px;"><i
+                                                    class="fas fa-phone-alt text-secondary me-2"></i> +94 77 123 4567
+                                            </p>
+                                            <p class="mb-2 text-dark" style="font-size: 13px;"><i
+                                                    class="fas fa-calendar-alt text-secondary me-2"></i> Joined: Jan 15,
+                                                2024</p>
+                                            <hr class="my-3 text-muted">
+                                            <h6 class="fw-bold text-pinkie mb-2"
+                                                style="font-size: 12px; text-transform: uppercase;">Default Address</h6>
+                                            <p class="mb-0 text-muted" style="font-size: 13px; line-height: 1.5;">No 15,
+                                                Galle Road,<br>Colombo 03,<br>Sri Lanka.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-8">
+                                    <div class="row g-3 mb-4">
+                                        <div class="col-md-4">
+                                            <div class="card border-0 rounded-4 p-3 shadow-sm text-center"
+                                                style="background: rgba(255,255,255,0.6);">
+                                                <p class="text-muted fw-bold mb-1" style="font-size: 12px;">TOTAL ORDERS
+                                                </p>
+                                                <h4 class="fw-bold text-dark m-0">12</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card border-0 rounded-4 p-3 shadow-sm text-center"
+                                                style="background: rgba(255,255,255,0.6);">
+                                                <p class="text-muted fw-bold mb-1" style="font-size: 12px;">TOTAL SPENT
+                                                </p>
+                                                <h4 class="fw-bold text-pinkie m-0">Rs. 450K</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card border-0 rounded-4 p-3 shadow-sm text-center"
+                                                style="background: rgba(255,255,255,0.6);">
+                                                <p class="text-muted fw-bold mb-1" style="font-size: 12px;">AVG. ORDER
+                                                    VALUE</p>
+                                                <h4 class="fw-bold text-success m-0">Rs. 37.5K</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h6 class="fw-bold text-dark mb-3">Recent Orders</h6>
+                                    <div class="card border-0 rounded-4 shadow-sm overflow-hidden"
+                                        style="background: rgba(255,255,255,0.6);">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover align-middle mb-0 glass-table">
+                                                <thead style="background: rgba(218,85,134,0.08);">
+                                                    <tr>
+                                                        <th scope="col" class="text-muted ps-3 py-2"
+                                                            style="font-size: 12px;">ORDER ID</th>
+                                                        <th scope="col" class="text-muted py-2"
+                                                            style="font-size: 12px;">DATE</th>
+                                                        <th scope="col" class="text-muted py-2"
+                                                            style="font-size: 12px;">ITEMS</th>
+                                                        <th scope="col" class="text-muted py-2"
+                                                            style="font-size: 12px;">TOTAL</th>
+                                                        <th scope="col" class="text-center text-muted py-2"
+                                                            style="font-size: 12px;">STATUS</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="ps-3 py-2 fw-bold text-dark"
+                                                            style="font-size: 13px;">#ORD-5001</td>
+                                                        <td class="py-2 text-muted" style="font-size: 13px;">Oct 12,
+                                                            2026</td>
+                                                        <td class="py-2 text-muted" style="font-size: 13px;">2 Items
+                                                        </td>
+                                                        <td class="py-2 fw-bold text-pinkie" style="font-size: 13px;">
+                                                            Rs. 85,000</td>
+                                                        <td class="py-2 text-center"><span
+                                                                class="badge bg-warning text-dark px-2 rounded-pill"
+                                                                style="font-size: 11px;">Processing</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="ps-3 py-2 fw-bold text-dark"
+                                                            style="font-size: 13px;">#ORD-4920</td>
+                                                        <td class="py-2 text-muted" style="font-size: 13px;">Sep 05,
+                                                            2026</td>
+                                                        <td class="py-2 text-muted" style="font-size: 13px;">1 Item</td>
+                                                        <td class="py-2 fw-bold text-pinkie" style="font-size: 13px;">
+                                                            Rs. 45,000</td>
+                                                        <td class="py-2 text-center"><span
+                                                                class="badge bg-success px-2 rounded-pill"
+                                                                style="font-size: 11px;">Delivered</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="ps-3 py-2 fw-bold text-dark"
+                                                            style="font-size: 13px;">#ORD-4850</td>
+                                                        <td class="py-2 text-muted" style="font-size: 13px;">Aug 20,
+                                                            2026</td>
+                                                        <td class="py-2 text-muted" style="font-size: 13px;">3 Items
+                                                        </td>
+                                                        <td class="py-2 fw-bold text-pinkie" style="font-size: 13px;">
+                                                            Rs. 120,000</td>
+                                                        <td class="py-2 text-center"><span
+                                                                class="badge bg-success px-2 rounded-pill"
+                                                                style="font-size: 11px;">Delivered</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer border-top-0 pt-0 px-4 pb-4">
+                            <button type="button" class="btn btn-light rounded-pill px-4 fw-bold text-muted shadow-sm"
+                                data-bs-dismiss="modal">Close Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+
+    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/customers.js"></script>
+    <script src="assets/js/messages.js"></script>
+
+</body>
+
+</html>
