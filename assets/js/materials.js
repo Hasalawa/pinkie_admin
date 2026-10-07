@@ -20,7 +20,7 @@ async function loadDropdownData() {
     
     try {
         
-        const catRes = await fetch("http://localhost:8080/api/categories/all", { headers: { "Authorization": `Bearer ${token}` } });
+        const catRes = await fetch("https://pinkie-backend.onrender.com/api/categories/all", { headers: { "Authorization": `Bearer ${token}` } });
         const catData = await catRes.json();
         
         if (catRes.ok && catData.success) {
@@ -37,7 +37,7 @@ async function loadDropdownData() {
             editCatSelect.innerHTML = catOptions;
         }
 
-        const typeRes = await fetch("http://localhost:8080/api/types/all", { headers: { "Authorization": `Bearer ${token}` } });
+        const typeRes = await fetch("https://pinkie-backend.onrender.com/api/types/all", { headers: { "Authorization": `Bearer ${token}` } });
         const typeData = await typeRes.json();
         
         if (typeRes.ok && typeData.success) {
@@ -69,7 +69,7 @@ async function loadMaterials() {
     tableBody.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-2"></i>Loading Materials...</td></tr>`;
 
     try {
-        const response = await fetch("http://localhost:8080/api/materials/all", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/materials/all", {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -130,7 +130,7 @@ async function saveMaterial() {
     Swal.fire({ title: 'Saving...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
     try {
-        const response = await fetch("http://localhost:8080/api/materials/add", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/materials/add", {
             method: "POST", headers: { "Authorization": `Bearer ${token}` }, body: formData
         });
         const result = await response.json();
@@ -152,7 +152,7 @@ async function saveMaterial() {
 async function openEditMaterialModal(id) {
     const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
     try {
-        const response = await fetch(`http://localhost:8080/api/materials/get/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/materials/get/${id}`, {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -196,7 +196,7 @@ async function updateMaterial() {
     Swal.fire({ title: 'Updating...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
     try {
-        const response = await fetch(`http://localhost:8080/api/materials/update/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/materials/update/${id}`, {
             method: "PUT", headers: { "Authorization": `Bearer ${token}` }, body: formData
         });
         const result = await response.json();
@@ -224,7 +224,7 @@ function deleteMaterial(id) {
             Swal.fire({ title: 'Deleting...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
             try {
-                const response = await fetch(`http://localhost:8080/api/materials/delete/${id}`, {
+                const response = await fetch(`https://pinkie-backend.onrender.com/api/materials/delete/${id}`, {
                     method: "DELETE", headers: { "Authorization": `Bearer ${token}` }
                 });
                 const data = await response.json();

@@ -28,7 +28,7 @@ async function loadProductData(id) {
     Swal.fire({ title: 'Loading details...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
     try {
-        const response = await fetch(`http://localhost:8080/api/products/get/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/products/get/${id}`, {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -148,7 +148,7 @@ async function loadInitialDropdownData() {
     const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
     
     try {
-        const catRes = await fetch("http://localhost:8080/api/categories/all", { headers: { "Authorization": `Bearer ${token}` } });
+        const catRes = await fetch("https://pinkie-backend.onrender.com/api/categories/all", { headers: { "Authorization": `Bearer ${token}` } });
         const catData = await catRes.json();
         
         if (catRes.ok && catData.success) {
@@ -163,19 +163,19 @@ async function loadInitialDropdownData() {
             catSelect.innerHTML = options;
         }
 
-        const typeRes = await fetch("http://localhost:8080/api/types/all", { headers: { "Authorization": `Bearer ${token}` } });
+        const typeRes = await fetch("https://pinkie-backend.onrender.com/api/types/all", { headers: { "Authorization": `Bearer ${token}` } });
         const typeData = await typeRes.json();
         if (typeRes.ok && typeData.success) {
             globalTypes = typeData.data.filter(t => t.status === 'Active');
         }
 
-        const matRes = await fetch("http://localhost:8080/api/materials/all", { headers: { "Authorization": `Bearer ${token}` } });
+        const matRes = await fetch("https://pinkie-backend.onrender.com/api/materials/all", { headers: { "Authorization": `Bearer ${token}` } });
         const matData = await matRes.json();
         if (matRes.ok && matData.success) {
             globalMaterials = matData.data.filter(m => m.status === 'Active');
         }
 
-        const genderRes = await fetch("http://localhost:8080/api/products/genders", { headers: { "Authorization": `Bearer ${token}` } });
+        const genderRes = await fetch("https://pinkie-backend.onrender.com/api/products/genders", { headers: { "Authorization": `Bearer ${token}` } });
         const genderData = await genderRes.json();
         if (genderRes.ok && genderData.success) {
             const genderSelect = document.getElementById("productGender");
@@ -456,7 +456,7 @@ async function saveProduct() {
 
     const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
     
-    const apiUrl = isEditMode ? `http://localhost:8080/api/products/update/${productId}` : `http://localhost:8080/api/products/add`;
+    const apiUrl = isEditMode ? `https://pinkie-backend.onrender.com/api/products/update/${productId}` : `https://pinkie-backend.onrender.com/api/products/add`;
     const apiMethod = isEditMode ? "PUT" : "POST";
     const loadingMsg = isEditMode ? "Updating Product..." : "Saving Product...";
 

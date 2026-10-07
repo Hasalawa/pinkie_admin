@@ -1,4 +1,4 @@
-const SETTINGS_API_URL = "http://localhost:8080/api/settings";
+const SETTINGS_API_URL = "https://pinkie-backend.onrender.com/api/settings";
 let currentProfileImageBase64 = null; 
 
 document.addEventListener("DOMContentLoaded", function () {

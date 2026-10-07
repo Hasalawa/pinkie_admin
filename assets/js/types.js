@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function loadCategoryDropdowns() {
     const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
     try {
-        const response = await fetch("http://localhost:8080/api/categories/all", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/categories/all", {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -48,7 +48,7 @@ async function loadTypes() {
     tableBody.innerHTML = `<tr><td colspan="6" class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-2"></i>Loading Types...</td></tr>`;
 
     try {
-        const response = await fetch("http://localhost:8080/api/types/all", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/types/all", {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -122,7 +122,7 @@ async function saveType() {
 
         const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
 
-        const response = await fetch("http://localhost:8080/api/types/add", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/types/add", {
             method: "POST",
             headers: { "Authorization": `Bearer ${token}` },
             body: formData
@@ -146,7 +146,7 @@ async function saveType() {
 async function openEditTypeModal(id) {
     const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
     try {
-        const response = await fetch(`http://localhost:8080/api/types/get/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/types/get/${id}`, {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -195,7 +195,7 @@ async function updateType() {
 
         const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
 
-        const response = await fetch(`http://localhost:8080/api/types/update/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/types/update/${id}`, {
             method: "PUT",
             headers: { "Authorization": `Bearer ${token}` },
             body: formData
@@ -225,7 +225,7 @@ function deleteType(id) {
             Swal.fire({ title: 'Deleting...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
             try {
-                const response = await fetch(`http://localhost:8080/api/types/delete/${id}`, {
+                const response = await fetch(`https://pinkie-backend.onrender.com/api/types/delete/${id}`, {
                     method: "DELETE", headers: { "Authorization": `Bearer ${token}` }
                 });
                 const data = await response.json();

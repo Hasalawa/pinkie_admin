@@ -9,7 +9,7 @@ async function loadCustomers() {
     try {
         const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
 
-        const response = await fetch("http://localhost:8080/api/customers", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/customers", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -54,7 +54,7 @@ function toggleCustomerStatus(customerId, newStatus, customerName) {
             try {
                 const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken"); 
 
-                const response = await fetch(`http://localhost:8080/api/customers/${customerId}/toggle-status`, {
+                const response = await fetch(`https://pinkie-backend.onrender.com/api/customers/${customerId}/toggle-status`, {
                     method: "POST",
                     headers: { 
                         "Content-Type": "application/json",

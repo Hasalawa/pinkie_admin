@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/api/admin/orders'; 
+const API_URL = 'https://pinkie-backend.onrender.com/api/admin/orders'; 
 
 let allOrders = [];
 let currentViewingOrderId = null;

@@ -34,7 +34,7 @@ async function fetchReportData() {
 
         Swal.fire({ title: 'Generating Report...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
-        const response = await fetch(`http://localhost:8080/api/reports/generate?startDate=${startDate}&endDate=${endDate}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/reports/generate?startDate=${startDate}&endDate=${endDate}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

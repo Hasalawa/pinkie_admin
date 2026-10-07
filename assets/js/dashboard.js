@@ -47,7 +47,7 @@ async function loadDashboardStats() {
         let selectedMonth = monthSelect ? monthSelect.value : "";
         let queryParams = selectedMonth ? `?monthYear=${encodeURIComponent(selectedMonth)}` : "";
 
-        const response = await fetch(`http://localhost:8080/api/dashboard/stats${queryParams}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/dashboard/stats${queryParams}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

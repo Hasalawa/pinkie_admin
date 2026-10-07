@@ -9,7 +9,7 @@ async function loadCategoriesForFilter() {
   const token =
     localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
   try {
-    const response = await fetch("http://localhost:8080/api/categories/all", {
+    const response = await fetch("https://pinkie-backend.onrender.com/api/categories/all", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const result = await response.json();
@@ -37,7 +37,7 @@ async function loadProducts() {
     tableBody.innerHTML = `<tr><td colspan="9" class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-2"></i>Loading Products...</td></tr>`;
 
   try {
-    const response = await fetch("http://localhost:8080/api/products/all", {
+    const response = await fetch("https://pinkie-backend.onrender.com/api/products/all", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const result = await response.json();
@@ -212,7 +212,7 @@ async function changeStatus(event, id, newStatus) {
     localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
   try {
     const response = await fetch(
-      `http://localhost:8080/api/products/change-status/${id}?status=${newStatus}`,
+      `https://pinkie-backend.onrender.com/api/products/change-status/${id}?status=${newStatus}`,
       { method: "PUT", headers: { Authorization: `Bearer ${token}` } },
     );
     if (response.ok) loadProducts();
@@ -241,7 +241,7 @@ function deleteProduct(id) {
       });
       try {
         const response = await fetch(
-          `http://localhost:8080/api/products/delete/${id}`,
+          `https://pinkie-backend.onrender.com/api/products/delete/${id}`,
           { method: "DELETE", headers: { Authorization: `Bearer ${token}` } },
         );
         if (response.ok) {

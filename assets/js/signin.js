@@ -26,7 +26,7 @@ async function signIn() {
     });
 
     try {
-        const response = await fetch("http://localhost:8080/api/auth/login", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -116,7 +116,7 @@ async function sendOTP() {
     });
 
     try {
-        const response = await fetch("http://localhost:8080/api/forgot-password/send-otp", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/forgot-password/send-otp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -195,7 +195,7 @@ async function updatePassword() {
 
     try {
         
-        const response = await fetch("http://localhost:8080/api/forgot-password/reset", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/forgot-password/reset", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

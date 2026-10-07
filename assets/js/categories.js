@@ -47,7 +47,7 @@ async function loadCategories() {
     tableBody.innerHTML = `<tr><td colspan="7" class="text-center py-4 text-muted"><i class="fas fa-spinner fa-spin me-2"></i>Loading Categories...</td></tr>`;
 
     try {
-        const response = await fetch("http://localhost:8080/api/categories/all", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/categories/all", {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -122,7 +122,7 @@ async function saveCategory() {
 
         const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
 
-        const response = await fetch("http://localhost:8080/api/categories/add", {
+        const response = await fetch("https://pinkie-backend.onrender.com/api/categories/add", {
             method: "POST",
             headers: { "Authorization": `Bearer ${token}` },
             body: formData
@@ -147,7 +147,7 @@ async function saveCategory() {
 async function editCategory(id) {
     const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
     try {
-        const response = await fetch(`http://localhost:8080/api/categories/get/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/categories/get/${id}`, {
             headers: { "Authorization": `Bearer ${token}` }
         });
         const result = await response.json();
@@ -213,7 +213,7 @@ async function submitEditCategory() {
 
         const token = localStorage.getItem("adminToken") || sessionStorage.getItem("adminToken");
 
-        const response = await fetch(`http://localhost:8080/api/categories/update/${id}`, {
+        const response = await fetch(`https://pinkie-backend.onrender.com/api/categories/update/${id}`, {
             method: "PUT",
             headers: { "Authorization": `Bearer ${token}` },
             body: formData
@@ -253,7 +253,7 @@ async function deleteCategory(id) {
             Swal.fire({ title: 'Deleting...', allowOutsideClick: false, didOpen: () => Swal.showLoading() });
 
             try {
-                const response = await fetch(`http://localhost:8080/api/categories/delete/${id}`, {
+                const response = await fetch(`https://pinkie-backend.onrender.com/api/categories/delete/${id}`, {
                     method: "DELETE",
                     headers: { "Authorization": `Bearer ${token}` }
                 });
